@@ -1,0 +1,15 @@
+[Ll]ibrary/
+[Tt]emp/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Oo]bj/
+UserSettings/
+MemoryCaptures/
+sysinfo.txt
+*.csproj
+*.sln
+*.user
+*.vs/
+*.swp
+.DS_Store
