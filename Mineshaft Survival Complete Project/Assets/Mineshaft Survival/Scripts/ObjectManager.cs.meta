@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 9d67b70e0e7e0e04480bc24885d1e073
+timeCreated: 1525434977
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Scripts/ObjectManager.cs
+  uploadId: 243996

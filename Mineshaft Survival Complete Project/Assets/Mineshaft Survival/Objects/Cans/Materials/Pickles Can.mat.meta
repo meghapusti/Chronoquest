@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: afba3ccbf81a68e46a463e445d7700e2
+timeCreated: 1516549000
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Objects/Cans/Materials/Pickles Can.mat
+  uploadId: 243996

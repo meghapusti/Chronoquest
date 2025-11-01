@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 5d09499baf6aaea44a2a0c4da4a1a20e
+timeCreated: 1516462914
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Objects/Water/Material/Material.mat
+  uploadId: 243996

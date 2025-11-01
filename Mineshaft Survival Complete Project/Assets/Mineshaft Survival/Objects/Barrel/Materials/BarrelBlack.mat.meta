@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 079f40f406255c041964edd7ad07b1f0
+timeCreated: 1516490880
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Objects/Barrel/Materials/BarrelBlack.mat
+  uploadId: 243996

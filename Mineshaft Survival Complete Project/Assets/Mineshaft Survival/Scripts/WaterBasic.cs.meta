@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 0d2f50a8e0bb841a5aaa90ae55db8849
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Scripts/WaterBasic.cs
+  uploadId: 243996

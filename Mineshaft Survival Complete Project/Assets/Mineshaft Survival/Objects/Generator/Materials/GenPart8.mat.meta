@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: ff859b3420dafb342a1d134775745e53
+timeCreated: 1516569829
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Objects/Generator/Materials/GenPart8.mat
+  uploadId: 243996

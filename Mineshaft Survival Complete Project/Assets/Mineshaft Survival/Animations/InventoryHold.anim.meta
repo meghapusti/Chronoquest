@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: d661adccc83582046a7b29cb30d00c72
+timeCreated: 1516474769
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 7400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Animations/InventoryHold.anim
+  uploadId: 243996

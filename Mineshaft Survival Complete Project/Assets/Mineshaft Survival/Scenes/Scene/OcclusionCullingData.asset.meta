@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b771b75f3b6a76d4fb5b3eff27e6f39f
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 36300000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Scenes/Scene/OcclusionCullingData.asset
+  uploadId: 243996

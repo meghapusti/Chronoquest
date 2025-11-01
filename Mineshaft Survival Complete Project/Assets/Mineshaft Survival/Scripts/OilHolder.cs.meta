@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 5240896ef6d7f014b8b283c3a97957a6
+timeCreated: 1516492360
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Scripts/OilHolder.cs
+  uploadId: 243996

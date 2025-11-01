@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 09d6d5a1522b7cb41adfd3592f6c3667
+timeCreated: 1516663701
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Objects/Rat/Materials/RatAddons.mat
+  uploadId: 243996

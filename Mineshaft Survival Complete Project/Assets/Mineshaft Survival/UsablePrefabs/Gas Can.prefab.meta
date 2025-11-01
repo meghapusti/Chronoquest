@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 33ae1866dc2df5c41ab5f2c9af30f668
+timeCreated: 1516498307
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/UsablePrefabs/Gas Can.prefab
+  uploadId: 243996

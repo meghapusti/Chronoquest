@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: 7544c87d335001e4e98b2f03ff3dfdea
+timeCreated: 1516550072
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Scripts/Eatable.cs
+  uploadId: 243996

@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 754890a95f74e0341b0a2d4ab9de33a0
+timeCreated: 1516549000
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Objects/Cans/Materials/Empty Can.mat
+  uploadId: 243996

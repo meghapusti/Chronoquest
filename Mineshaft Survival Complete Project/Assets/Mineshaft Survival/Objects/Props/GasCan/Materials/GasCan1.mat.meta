@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 49f270a2b12480b4383ef68917020014
+timeCreated: 1516405869
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Objects/Props/GasCan/Materials/GasCan1.mat
+  uploadId: 243996

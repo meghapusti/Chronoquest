@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: a775af6d226cc094d8772e5b90a156c8
+timeCreated: 1516452327
+licenseType: Store
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 109994
+  packageName: Mineshaft Survival Complete Project
+  packageVersion: 1.2
+  assetPath: Assets/Mineshaft Survival/Scripts/LifeStats.cs
+  uploadId: 243996
