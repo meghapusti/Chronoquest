@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.InputSystem; // Required for InputValue
+using UnityEngine.InputSystem; // Required for InputValue and InputSystem
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         playerCamera = Camera.main.transform;
+
+        // ✅ Forzar que el Input System use Dynamic Update (reduce lag del ratón)
+        InputSystem.settings.updateMode = InputSettings.UpdateMode.ProcessEventsInDynamicUpdate;
     }
 
     void Update()
@@ -24,18 +27,20 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
     }
 
-    // 👇 THIS IS WHAT UNITY INPUT EVENTS LOOK FOR
+    // 👇 Unity llama automáticamente a esto desde Player Input (Send Messages)
     public void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
     }
 
-    // 👇 THIS ONE HANDLES MOUSE OR RIGHT STICK LOOK
+    // 👇 Maneja la rotación con el ratón o joystick derecho
     public void OnLook(InputValue value)
     {
         lookInput = value.Get<Vector2>();
 
-        // Example camera rotation (optional)
+        // Rotación horizontal del jugador
         transform.Rotate(Vector3.up * lookInput.x * lookSpeed * Time.deltaTime);
     }
 }
+
+
