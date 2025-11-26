@@ -8,7 +8,7 @@ public class Stone : MonoBehaviour
     public float stickDestroyAfter = -1f;   // >0 para autodestruir la piedra pegada; -1 = para siempre
 
     [Header("Pegado")]
-    public float stickOffset = 0.02f;       // separa un pelín para evitar z-fighting
+    public float stickOffset = 0.02f;       // separa un poquito para evitar z-fighting
 
     bool stuck = false;
     Rigidbody rb;
@@ -22,56 +22,50 @@ public class Stone : MonoBehaviour
 
     void Start()
     {
-        // antes destruías siempre aquí; ahora solo si no llega a pegarse:
-        StartCoroutine(SelfDestructIfNotStuck());
-    }
-
-    IEnumerator SelfDestructIfNotStuck()
-    {
-        yield return new WaitForSeconds(life);
-        if (!stuck) Destroy(gameObject);
+        if (life > 0f)
+            Destroy(gameObject, life);
     }
 
     void OnCollisionEnter(Collision c)
     {
-        Debug.Log($"Hit {c.collider.name} (tag {c.collider.tag})");
+        if (stuck) return;
 
-        if (c.collider.CompareTag("Target"))
+        // ¿Golpeó un Target?
+        Target target = c.collider.GetComponent<Target>();
+
+        if (target != null)
         {
-            // sumar puntos
-            if (GameManager.Instance != null)
-                GameManager.Instance.AddScore(20);
-
-            // pegar la piedra a la superficie impactada
-            StickTo(c);
+            // Tu Target usa: RegisterHit(Stone, Collision)
+            target.RegisterHit(this, c);
         }
     }
 
-    void StickTo(Collision c)
+    public void StickTo(Collision c)
     {
         if (stuck) return;
         stuck = true;
 
-        // parar física
         if (rb != null)
         {
+            rb.isKinematic = true;
             rb.linearVelocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
-            rb.isKinematic = true; // ya no la afecta la física
         }
 
-        // colocar en el punto de contacto y orientar la "punta" hacia dentro
+        if (col != null) col.enabled = false;
+
+        // Colocar exactamente en el punto de impacto
         var contact = c.GetContact(0);
         transform.position = contact.point + contact.normal * stickOffset;
         transform.rotation = Quaternion.LookRotation(-contact.normal, Vector3.up);
 
-        // opcional: desactivar el collider para que no siga chocando
-        if (col != null) col.enabled = false;
-
-        // hacerla hija del objeto golpeado para que se mueva con él si hace falta
+        // Hacerla hija del objeto golpeado (opcional)
         transform.SetParent(c.collider.transform, true);
 
-        // si quieres que también desaparezca tras un rato aun pegada
-        if (stickDestroyAfter > 0f) Destroy(gameObject, stickDestroyAfter);
+        // Si quieres que desaparezca pegada tras un tiempo
+        if (stickDestroyAfter > 0f)
+            Destroy(gameObject, stickDestroyAfter);
     }
 }
+
+

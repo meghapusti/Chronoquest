@@ -44,7 +44,3 @@ public class Thrower : MonoBehaviour
     }
 }
 
-
-
-
-
