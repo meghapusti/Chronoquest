@@ -4482,7 +4482,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   speed: 3.7
-  lookSpeed: 0.2
+  rotateSpeed: 120
 --- !u!114 &752077729
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4455010823889047739}
   - component: {fileID: 941408482541070742}
   - component: {fileID: 5194385879636394846}
-  - component: {fileID: 8504439536206057438}
+  - component: {fileID: 7139766346067373717}
   m_Layer: 0
   m_Name: MysteryObject
   m_TagString: Untagged
@@ -140,7 +140,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8504439536206057438
+--- !u!114 &7139766346067373717
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -152,3 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae1f10c2a7f66534093dc500bdd4774f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MysteryObjectPickup
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
