@@ -25,6 +25,12 @@ public class InventoryManager : MonoBehaviour
         {
             compassClosedPos = compassButton.anchoredPosition;
         }
+        // FIX: Explicitly set the inventory state to closed at startup
+    inventoryOpen = false; 
+    if (inventoryPanel != null)
+    {
+        inventoryPanel.SetActive(false); // Make sure the UI object is hidden initially
+    }
     }
 
     public void ToggleInventory()

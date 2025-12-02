@@ -3552,7 +3552,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eadda598fed444f78a27a270c0a8f1c4, type: 3}
       propertyPath: m_LocalScale.z
-      value: 6.823921
+      value: 6.227374
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: eadda598fed444f78a27a270c0a8f1c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6696,7 +6696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 0.43137255}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
