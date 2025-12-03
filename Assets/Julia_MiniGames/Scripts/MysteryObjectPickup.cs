@@ -5,6 +5,8 @@ public class MysteryObjectPickup : MonoBehaviour
 {
     [Header("Highlight")]
     public Color highlightColor = Color.yellow;
+    public Sprite inventorySprite; // NEW — assign correct icon per object
+
 
     private Renderer rend;
     private Material[] materials;
@@ -60,7 +62,8 @@ public class MysteryObjectPickup : MonoBehaviour
             // 2º click → añadir a mochila y destruir
             if (InventoryManager.Instance != null)
             {
-                InventoryManager.Instance.AddMysteryObject();
+                // InventoryManager.Instance.CollectMysteryObject(); // Calls the correct function
+                InventoryManager.Instance.CollectMysteryObject(inventorySprite);
                 Debug.Log("🎒 MysteryObject añadido a la mochila (segundo click).");
             }
             else

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33322510245055834}
   - component: {fileID: 23700771919634606}
   - component: {fileID: 64625223336438494}
+  - component: {fileID: 3881122331358863887}
   m_Layer: 0
   m_Name: storage_barrel
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7244865, y: 1.7244865, z: 1.7244865}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -112,3 +113,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 08ee021cfbb99df4db2b3cf60648887e, type: 3}
+--- !u!114 &3881122331358863887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561497455732876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae1f10c2a7f66534093dc500bdd4774f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MysteryObjectPickup
+  highlightColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+  inventorySprite: {fileID: 21300000, guid: 8fd8a5b0b4c244eb4b2d374f796ea956, type: 3}
