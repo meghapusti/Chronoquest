@@ -11,17 +11,19 @@ public class GameManager : MonoBehaviour
 
     [Header("Objeto misterioso")]
     [SerializeField] int mysteryScoreThreshold = 30;
-    [SerializeField] GameObject mysteryObjectPrefab; // Default for Caveman
+    [SerializeField] GameObject mysteryObjectPrefab; // For Caveman
     [SerializeField] GameObject medievalMysteryObjectPrefab; // For Medieval
-    public Transform playerTransform; 
+    [SerializeField] private GameObject futuristicMysteryObjectPrefab; // For Futuristic
+
+    public Transform playerTransform;
     [SerializeField] float forwardDistance = 10f;
-    [SerializeField] float initialDropHeight = 3f; 
+    [SerializeField] float initialDropHeight = 3f;
     [SerializeField] float inventoryDropOffset = 0.5f;
 
     private bool mysterySpawned = false;
     private int hitCount = 0;
 
-    private GameObject collectedMysteryPrefab; // ✅ NEW: Track actual collected object
+    private GameObject collectedMysteryPrefab;
 
     void Awake()
     {
@@ -48,14 +50,29 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        // 👇 Scene-specific prefab override
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj != null)
+        {
+            playerTransform = playerObj.transform;
+            Debug.Log("👤 GameManager: Player reference updated.");
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ GameManager: Player object not found in scene.");
+        }
+
+        // Scene-specific prefab override
         if (scene.name == "Medieval Era" && medievalMysteryObjectPrefab != null)
         {
             mysteryObjectPrefab = medievalMysteryObjectPrefab;
             Debug.Log("🏰 Switched to Medieval mystery object prefab.");
         }
+        else if (scene.name == "Futuristic" && futuristicMysteryObjectPrefab != null)
+        {
+            mysteryObjectPrefab = futuristicMysteryObjectPrefab;
+            Debug.Log("🌇 Switched to Futuristic mystery object prefab.");
+        }
 
-        // ✅ Reset hit count after teleport
         hitCount = 0;
         mysterySpawned = false;
 
@@ -80,14 +97,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // ✅ FIXED: Use correct prefab for scene, don’t overwrite it!
     void CheckMysteryObject()
     {
-        // ✅ Only spawn after exactly 3 hits
         if (mysterySpawned || hitCount < 3) return;
 
-        if (mysteryObjectPrefab == null || playerTransform == null)
+        if (playerTransform == null)
         {
-            Debug.LogWarning("⚠️ Missing prefab or player reference.");
+            Debug.LogWarning("⚠️ Cannot spawn: Player reference is null.");
+            mysterySpawned = true;
+            return;
+        }
+
+        string scene = SceneManager.GetActiveScene().name;
+        GameObject prefabToUse = null;
+
+        if (scene == "Caveman Era")
+            prefabToUse = mysteryObjectPrefab;
+        else if (scene == "Medieval Era")
+            prefabToUse = medievalMysteryObjectPrefab;
+        else if (scene == "Futuristic")
+            prefabToUse = futuristicMysteryObjectPrefab;
+
+        if (prefabToUse == null)
+        {
+            Debug.LogWarning("⚠️ No mystery prefab assigned for this scene.");
             mysterySpawned = true;
             return;
         }
@@ -95,42 +129,40 @@ public class GameManager : MonoBehaviour
         Vector3 forwardPos = playerTransform.position + playerTransform.forward * forwardDistance;
         Vector3 spawnPos = forwardPos + Vector3.up * initialDropHeight;
 
-        GameObject spawned = Instantiate(mysteryObjectPrefab, spawnPos, Quaternion.identity);
+        Instantiate(prefabToUse, spawnPos, Quaternion.identity);
 
-        // ✅ Store actual prefab so inventory spawn matches this one
-        collectedMysteryPrefab = mysteryObjectPrefab;
-
+        collectedMysteryPrefab = prefabToUse; // ✅ Store correct one for inventory
         mysterySpawned = true;
-        Debug.Log("🌟 Mystery object spawned.");
+
+        Debug.Log($"🌟 Spawned: {prefabToUse.name} at {spawnPos}");
     }
 
+    // ✅ FIXED: Inventory drops exact collected object at player
     public void SpawnMysteryObjectAtPlayer()
     {
-        // ✅ Use collected object (not current prefab)
-        GameObject prefabToSpawn = collectedMysteryPrefab != null ? collectedMysteryPrefab : mysteryObjectPrefab;
+        GameObject prefabToSpawn = collectedMysteryPrefab;
 
-        if (prefabToSpawn == null || playerTransform == null)
+        if (prefabToSpawn == null)
         {
-            Debug.LogError("⚠️ Cannot spawn: missing prefab or player reference.");
+            Debug.LogError("❌ No collectedMysteryPrefab set!");
             return;
         }
 
-        float objectHalfHeight = 1f;
-        MeshRenderer meshRenderer = prefabToSpawn.GetComponentInChildren<MeshRenderer>();
-        if (meshRenderer != null)
+        if (playerTransform == null)
         {
-            objectHalfHeight = meshRenderer.bounds.extents.y;
+            Debug.LogError("❌ Player reference missing in SpawnMysteryObjectAtPlayer!");
+            return;
         }
 
-        Vector3 forwardPos = playerTransform.position + playerTransform.forward * forwardDistance;
-        Vector3 spawnPos = forwardPos + Vector3.up * objectHalfHeight;
+        Vector3 pos = playerTransform.position + playerTransform.forward * forwardDistance;
+        pos += Vector3.up * 1.0f;
 
-        Instantiate(prefabToSpawn, spawnPos, Quaternion.identity);
+        Instantiate(prefabToSpawn, pos, Quaternion.identity);
         mysterySpawned = false;
-        Debug.Log($"🎯 Spawned collected mystery object in world.");
+
+        Debug.Log($"📦 Spawned object from inventory: {prefabToSpawn.name}");
     }
 
-    // ✅ Called by InventoryManager when player picks up object
     public void RegisterCollectedMystery(GameObject pickedUpPrefab)
     {
         collectedMysteryPrefab = pickedUpPrefab;
