@@ -5826,7 +5826,7 @@ MonoBehaviour:
   mysteryScoreThreshold: 30
   mysteryObjectPrefab: {fileID: 1561497455732876, guid: 3c3b0773e182ad847a706394ac5af117, type: 3}
   medievalMysteryObjectPrefab: {fileID: 8343634642522002128, guid: 57805b2ea9400ec4ebdcd944c27920d4, type: 3}
-  futuristicMysteryObjectPrefab: {fileID: 9168493203826219794, guid: b8ca197600c31409d90edf5e0c4b56dd, type: 3}
+  futuristicMysteryObjectPrefab: {fileID: 3591976697644193765, guid: 9a3196733782746eea11671c63e58b5c, type: 3}
   playerTransform: {fileID: 752077727}
   forwardDistance: 12
   initialDropHeight: 3
@@ -6769,7 +6769,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 320}
+  m_SizeDelta: {x: 0, y: 310}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1039520264
 MonoBehaviour:
