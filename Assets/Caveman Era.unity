@@ -5825,7 +5825,7 @@ MonoBehaviour:
   scoreText: {fileID: 640107312}
   mysteryScoreThreshold: 30
   mysteryObjectPrefab: {fileID: 1561497455732876, guid: 3c3b0773e182ad847a706394ac5af117, type: 3}
-  medievalMysteryObjectPrefab: {fileID: 8343634642522002128, guid: 57805b2ea9400ec4ebdcd944c27920d4, type: 3}
+  medievalMysteryObjectPrefab: {fileID: 5183989996833600720, guid: 6eb6d6225684542a7899dcdf8e9c33c5, type: 3}
   futuristicMysteryObjectPrefab: {fileID: 3591976697644193765, guid: 9a3196733782746eea11671c63e58b5c, type: 3}
   playerTransform: {fileID: 752077727}
   forwardDistance: 12
