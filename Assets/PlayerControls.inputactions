@@ -38,10 +38,10 @@
                 {
                     "name": "",
                     "id": "52262afb-01d4-4c42-b027-e9057c5cfba1",
-                    "path": "<Keyboard>/space",
+                    "path": "<Keyboard>/#(N)",
                     "interactions": "",
                     "processors": "",
-                    "groups": ";Keyboard&Mouse",
+                    "groups": ";Keyboard&Mouse;Gamepad",
                     "action": "Fire",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -115,7 +115,7 @@
                 {
                     "name": "up",
                     "id": "2a93f8ab-4071-4c55-863d-3c47e12fac7f",
-                    "path": "",
+                    "path": "<Keyboard>/#(I)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -126,7 +126,7 @@
                 {
                     "name": "down",
                     "id": "036f4fa3-b6a4-4da1-ab24-8f3b57d53c01",
-                    "path": "",
+                    "path": "<Keyboard>/#(K)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -137,7 +137,7 @@
                 {
                     "name": "left",
                     "id": "c31edc43-f74c-4d87-8b62-6ee77b414be9",
-                    "path": "<Keyboard>/leftArrow",
+                    "path": "<Keyboard>/#(J)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -148,7 +148,7 @@
                 {
                     "name": "right",
                     "id": "2a0856e4-f583-43d3-9195-6e0ca05f4aee",
-                    "path": "<Keyboard>/rightArrow",
+                    "path": "<Keyboard>/#(L)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
