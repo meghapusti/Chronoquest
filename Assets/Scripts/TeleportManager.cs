@@ -62,7 +62,10 @@ public class TeleportManager : MonoBehaviour
             }
         }
     }
-
+    public void ExecuteTeleportVR(string sceneName, string spawnPointName)
+    {
+        ExecuteTeleport(sceneName, spawnPointName);
+    }
     // --- Teleportation Logic ---
     private void ExecuteTeleport(string sceneName, string spawnPointName)
     {

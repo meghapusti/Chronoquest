@@ -47,6 +47,10 @@ public class MysteryObjectPickup : MonoBehaviour
             }
         }
     }
+    public void VRSelect()
+    {
+        HandleClickOnThis();
+    }
 
     void HandleClickOnThis()
     {
