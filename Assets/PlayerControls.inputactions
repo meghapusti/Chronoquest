@@ -47,6 +47,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "24384d1c-38cb-4273-b684-1db9c8d548c2",
+                    "path": "<QuestTouchPlusController>{LeftHand}/gripPressed",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";XR",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
                     "id": "a3d3d155-21e5-4137-b4d7-4c7c5f4584f4",
                     "path": "2DVector",
@@ -102,6 +113,17 @@
                     "isPartOfComposite": true
                 },
                 {
+                    "name": "",
+                    "id": "8cbd9c8e-77c3-4b6b-a248-5cfeaa192b5f",
+                    "path": "<QuestTouchPlusController>{LeftHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";XR",
+                    "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "2D Vector",
                     "id": "1c22022d-59a2-4978-91bd-b81955289106",
                     "path": "2DVector",
@@ -155,6 +177,17 @@
                     "action": "Look",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "d249bfb8-6f1a-42fa-9578-0f1e2a69f6ca",
+                    "path": "<QuestTouchPlusController>{RightHand}/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";XR",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
