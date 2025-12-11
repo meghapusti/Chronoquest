@@ -1,76 +1,71 @@
-// TeleportManager.cs
+// TeleportManager.cs (Using New Input System - Mouse)
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class TeleportManager : MonoBehaviour
 {
-    // === Public Inspector Variables ===
-    // Drag your Input Actions Asset's generated C# class here (e.g., MyControls.Player)
-    public InputActionReference clickAction; 
-    public float maxDistance = 10f; 
-
-    // === Private References ===
+    public float maxDistance = 10f;
     private Camera mainCamera;
 
-    // --- Unity Lifecycle ---
     private void Awake()
     {
-        // Get the main camera in the scene
-        mainCamera = Camera.main; 
+        mainCamera = Camera.main;
         if (mainCamera == null)
         {
             Debug.LogError("TeleportManager requires a Camera tagged 'MainCamera' in the scene.");
         }
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        // Subscribe to the Input Action's 'performed' phase
-        clickAction.action.performed += OnClickPerformed;
+        // Check for left mouse button click using New Input System
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        {
+            HandleClick();
+        }
     }
 
-    private void OnDisable()
+    private void HandleClick()
     {
-        // Unsubscribe to avoid memory leaks
-        clickAction.action.performed -= OnClickPerformed;
-    }
+        if (mainCamera == null)
+        {
+            Debug.LogError("Camera is null!");
+            return;
+        }
 
-    // --- Input System Callback ---
-    private void OnClickPerformed(InputAction.CallbackContext context)
-    {
-        // This method fires ONLY when the "Click" action is performed (e.g., mouse pressed)
-        
-        if (mainCamera == null) return;
+        // Get mouse position using New Input System
+        Vector2 mousePosition = Mouse.current.position.ReadValue();
+        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
 
-        // Create a ray from the camera, at the screen center (for simplicity in 3D/VR testing)
-        // For a desktop test, you might use Mouse.current.position.ReadValue() to get the mouse position.
-        
-        // For simple mouse click on desktop:
-        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        
-        // Use Physics.Raycast to check for hits
+        Debug.Log($"Raycasting from mouse position: {mousePosition}");
+
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
         {
-            // Check if the hit object has our TeleportButton component
+            Debug.Log($"Hit object: {hit.collider.gameObject.name}");
+
             TeleportButton button = hit.collider.GetComponent<TeleportButton>();
 
             if (button != null)
             {
-                // We hit a button! Call the teleport function
+                Debug.Log($"Found TeleportButton! Teleporting to {button.targetSceneName}");
                 ExecuteTeleport(button.targetSceneName, button.targetSpawnPointName);
             }
+            else
+            {
+                Debug.Log("Hit object doesn't have TeleportButton component");
+            }
+        }
+        else
+        {
+            Debug.Log("Raycast didn't hit anything within range");
         }
     }
 
-    // --- Teleportation Logic ---
     private void ExecuteTeleport(string sceneName, string spawnPointName)
     {
-        // Save the target spawn point name so the next scene can read it
         PlayerPrefs.SetString("TargetSpawnPoint", spawnPointName);
         Debug.Log($"Teleporting to scene: {sceneName} and targeting spawn point: {spawnPointName}");
-
-        // Load the new scene
         SceneManager.LoadScene(sceneName);
     }
 }

@@ -11041,7 +11041,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1982349881}
-  - component: {fileID: 1982349880}
+  - component: {fileID: 1982349882}
   m_Layer: 0
   m_Name: TeleportManager
   m_TagString: Untagged
@@ -11049,20 +11049,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1982349880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1982349879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40662bd63234945ff8ab7c074f246a70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TeleportManager
-  clickAction: {fileID: 2903282848179469473, guid: 289c1b55c9541489481df5cc06664110, type: 3}
-  maxDistance: 10
 --- !u!4 &1982349881
 Transform:
   m_ObjectHideFlags: 0
@@ -11078,6 +11064,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1982349882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982349879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40662bd63234945ff8ab7c074f246a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TeleportManager
+  maxDistance: 10
 --- !u!1001 &1998708084
 PrefabInstance:
   m_ObjectHideFlags: 0
