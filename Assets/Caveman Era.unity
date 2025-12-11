@@ -11439,7 +11439,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40662bd63234945ff8ab7c074f246a70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeleportManager
-  clickAction: {fileID: 0}
+  clickAction: {fileID: 2903282848179469473, guid: 289c1b55c9541489481df5cc06664110, type: 3}
   maxDistance: 10
 --- !u!1001 &1998708084
 PrefabInstance:
