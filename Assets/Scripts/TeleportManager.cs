@@ -1,15 +1,21 @@
-// TeleportManager.cs (Using New Input System - Mouse)
+// TeleportManager.cs
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class TeleportManager : MonoBehaviour
 {
+    // === Public Inspector Variables ===
+    public InputActionReference clickAction;
     public float maxDistance = 10f;
+
+    // === Private References ===
     private Camera mainCamera;
 
+    // --- Unity Lifecycle ---
     private void Awake()
     {
+        // Get the main camera in the scene
         mainCamera = Camera.main;
         if (mainCamera == null)
         {
@@ -17,55 +23,78 @@ public class TeleportManager : MonoBehaviour
         }
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        // Check for left mouse button click using New Input System
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        // Subscribe to the Input Action's 'performed' phase
+        if (clickAction != null && clickAction.action != null)
         {
-            HandleClick();
+            clickAction.action.performed += OnClickPerformed;
+            clickAction.action.Enable(); // ← THIS WAS MISSING!
+        }
+        else
+        {
+            Debug.LogWarning("TeleportManager: Click Action not assigned!");
         }
     }
 
-    private void HandleClick()
+    private void OnDisable()
     {
-        if (mainCamera == null)
+        // Unsubscribe to avoid memory leaks
+        if (clickAction != null && clickAction.action != null)
         {
-            Debug.LogError("Camera is null!");
-            return;
+            clickAction.action.performed -= OnClickPerformed;
         }
+    }
 
-        // Get mouse position using New Input System
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
+    // --- Input System Callback ---
+    private void OnClickPerformed(InputAction.CallbackContext context)
+    {
+        // This method fires ONLY when the "Click" action is performed (e.g., mouse pressed)
 
-        Debug.Log($"Raycasting from mouse position: {mousePosition}");
+        if (mainCamera == null) return;
 
+        // For simple mouse click on desktop:
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        // Use Physics.Raycast to check for hits
         if (Physics.Raycast(ray, out RaycastHit hit, maxDistance))
         {
-            Debug.Log($"Hit object: {hit.collider.gameObject.name}");
+            Debug.Log("Raycast hit: " + hit.collider.name); // DEBUG
 
+            // Check if the hit object has our TeleportButton component
             TeleportButton button = hit.collider.GetComponent<TeleportButton>();
 
             if (button != null)
             {
-                Debug.Log($"Found TeleportButton! Teleporting to {button.targetSceneName}");
+                Debug.Log("Found TeleportButton on: " + button.gameObject.name); // DEBUG
+                // We hit a button! Call the teleport function
                 ExecuteTeleport(button.targetSceneName, button.targetSpawnPointName);
             }
             else
             {
-                Debug.Log("Hit object doesn't have TeleportButton component");
+                Debug.Log("Hit object has no TeleportButton component"); // DEBUG
             }
         }
         else
         {
-            Debug.Log("Raycast didn't hit anything within range");
+            Debug.Log("Raycast hit nothing"); // DEBUG
         }
     }
 
+    // VR Controller call
+    public void ExecuteTeleportVR(string sceneName, string spawnPointName)
+    {
+        ExecuteTeleport(sceneName, spawnPointName);
+    }
+
+    // --- Teleportation Logic ---
     private void ExecuteTeleport(string sceneName, string spawnPointName)
     {
+        // Save the target spawn point name so the next scene can read it
         PlayerPrefs.SetString("TargetSpawnPoint", spawnPointName);
-        Debug.Log($"Teleporting to scene: {sceneName} and targeting spawn point: {spawnPointName}");
+        Debug.Log($"✅ Teleporting to scene: {sceneName} at spawn point: {spawnPointName}");
+
+        // Load the new scene
         SceneManager.LoadScene(sceneName);
     }
 }
